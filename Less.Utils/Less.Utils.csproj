@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Title>Less.Utils</Title>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://git.studylessshape.fun/studylessshape/Less.Utils</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>
