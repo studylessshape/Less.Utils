@@ -5,6 +5,7 @@
     <Title>Less.Utils</Title>
     <Copyright>MIT</Copyright>
     <PackageProjectUrl>https://git.studylessshape.fun/studylessshape/Less.Utils</PackageProjectUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
