@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netframework45;net6.0-windows;net8.0-windows</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://git.studylessshape.fun/studylessshape/Less.Utils</PackageProjectUrl>
+    <RepositoryUrl>https://git.studylessshape.fun/studylessshape/Less.Utils</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
