@@ -16,11 +16,28 @@ namespace Less.Utils
         internal T resultValue;
         internal TError errorValue;
 
+        /// <summary>
+        /// Result Tag
+        /// </summary>
         public int Tag => tag;
+
+        /// <summary>
+        /// Ok
+        /// </summary>
         public bool IsOk => Tag == OK;
+
+        /// <summary>
+        /// Error
+        /// </summary>
         public bool IsError => Tag == Err;
 
+        /// <summary>
+        /// When <see cref="IsOk"/> is <see langword="true"/>, can use this value to get result.
+        /// </summary>
         public T ResultValue => resultValue;
+        /// <summary>
+        /// When <see cref="IsError"/> is <see langword="true"/>, can use this value to get error.
+        /// </summary>
         public TError ErrorValue => errorValue;
 
         internal Result(T resultValue, int tag)
@@ -37,18 +54,12 @@ namespace Less.Utils
             resultValue = default;
         }
 
-        public Result<T, TError> WithErrorValue(TError errorValue)
-        {
-            this.errorValue = errorValue;
-            return this;
-        }
-
-        public Result<T, TError> WithResultValue(T resultValue)
-        {
-            this.resultValue = resultValue;
-            return this;
-        }
-
+        /// <summary>
+        /// If <see cref="IsOk"/> is <see langword="true"/>, will set result by <paramref name="predicite"/>.
+        /// </summary>
+        /// <typeparam name="TNew"></typeparam>
+        /// <param name="predicite"></param>
+        /// <returns></returns>
         public Result<TNew, TError> WrapOk<TNew>(Func<T, TNew> predicite)
         {
             if (IsError)
@@ -61,6 +72,12 @@ namespace Less.Utils
             }
         }
 
+        /// <summary>
+        /// If <see cref="IsError"/> is <see langword="true"/>, will set error by <paramref name="predicite"/>.
+        /// </summary>
+        /// <typeparam name="TErr"></typeparam>
+        /// <param name="predicite"></param>
+        /// <returns></returns>
         public Result<T, TErr> WrapErr<TErr>(Func<TError, TErr> predicite)
         {
             if (IsError)
@@ -73,36 +90,67 @@ namespace Less.Utils
             }
         }
 
+        /// <summary>
+        /// New ok result.
+        /// </summary>
+        /// <param name="resultValue"></param>
+        /// <returns></returns>
         public static Result<T, TError> NewOk(T resultValue)
         {
             return new Result<T, TError>(resultValue, OK);
         }
 
+        /// <summary>
+        /// New error result.
+        /// </summary>
+        /// <param name="errorValue"></param>
+        /// <returns></returns>
         public static Result<T, TError> NewError(TError errorValue)
         {
             return new Result<T, TError>(errorValue, Err);
         }
 
+        /// <summary>
+        /// Turn to ok result. If <typeparamref name="T"/> is <typeparamref name="TError"/>, it can't be used.
+        /// </summary>
+        /// <param name="resultValue"></param>
         public static implicit operator Result<T, TError>(T resultValue)
         {
             return NewOk(resultValue);
         }
 
+        /// <summary>
+        /// Turn to error result. If <typeparamref name="T"/> is <typeparamref name="TError"/>, it can't be used.
+        /// </summary>
+        /// <param name="errorValue"></param>
         public static implicit operator Result<T, TError>(TError errorValue)
         {
             return NewError(errorValue);
         }
 
+        /// <summary>
+        /// From other result with same result type but different error type.
+        /// </summary>
+        /// <typeparam name="TOtherError"></typeparam>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public static Result<T, TError> FromOk<TOtherError>(Result<T, TOtherError> result)
         {
             return NewOk(result.ResultValue);
         }
 
+        /// <summary>
+        /// From other result with same error type but different result type.
+        /// </summary>
+        /// <typeparam name="TOther"></typeparam>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public static Result<T, TError> FromErr<TOther>(Result<TOther, TError> result)
         {
             return NewError(result.ErrorValue);
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             if (IsOk)

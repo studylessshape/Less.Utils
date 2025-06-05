@@ -27,6 +27,8 @@ namespace Less.Utils.WPF
         /// When result is <see langword="null"/>, the error content will use default result
         /// </summary>
         public string DefaultErrorContent { get; set; } = "";
+
+        /// <inheritdoc/>
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             var result = ValidateEvent?.Invoke(value, cultureInfo);
