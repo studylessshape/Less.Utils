@@ -7,19 +7,19 @@ namespace Less.Utils
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TError"></typeparam>
-    public struct Result<T, TError>
+    public struct Result<T, TError> : IEquatable<Result<T, TError>>
     {
         private const int OK = 0;
         private const int Err = 1;
 
-        internal int tag;
+        internal int _tag;
         internal T resultValue;
         internal TError errorValue;
 
         /// <summary>
         /// Result Tag
         /// </summary>
-        public int Tag => tag;
+        public int Tag => _tag;
 
         /// <summary>
         /// Ok
@@ -43,14 +43,14 @@ namespace Less.Utils
         internal Result(T resultValue, int tag)
         {
             this.resultValue = resultValue;
-            this.tag = tag;
+            this._tag = tag;
             errorValue = default;
         }
 
         internal Result(TError errorValue, int tag)
         {
             this.errorValue = errorValue;
-            this.tag = tag;
+            this._tag = tag;
             resultValue = default;
         }
 
@@ -75,18 +75,30 @@ namespace Less.Utils
         /// <summary>
         /// If <see cref="IsError"/> is <see langword="true"/>, will set error by <paramref name="predicite"/>.
         /// </summary>
-        /// <typeparam name="TErr"></typeparam>
+        /// <typeparam name="TError2"></typeparam>
         /// <param name="predicite"></param>
         /// <returns></returns>
-        public Result<T, TErr> WrapErr<TErr>(Func<TError, TErr> predicite)
+        public Result<T, TError2> WrapErr<TError2>(Func<TError, TError2> predicite)
         {
             if (IsError)
             {
-                return Result<T, TErr>.NewError(predicite(ErrorValue));
+                return Result<T, TError2>.NewError(predicite(ErrorValue));
             }
             else
             {
-                return Result<T, TErr>.NewOk(ResultValue);
+                return Result<T, TError2>.NewOk(ResultValue);
+            }
+        }
+
+        public Result<T2, TError2> Wrap<T2, TError2>(Func<T, T2> mapOkValue, Func<TError, TError2> mapErrValue)
+        {
+            if (IsError)
+            {
+                return Result<T2, TError2>.NewError(mapErrValue(ErrorValue));
+            }
+            else
+            {
+                return Result<T2, TError2>.NewOk(mapOkValue(ResultValue));
             }
         }
 
@@ -110,57 +122,37 @@ namespace Less.Utils
             return new Result<T, TError>(errorValue, Err);
         }
 
-        /// <summary>
-        /// Turn to ok result. If <typeparamref name="T"/> is <typeparamref name="TError"/>, it can't be used.
-        /// </summary>
-        /// <param name="resultValue"></param>
-        public static implicit operator Result<T, TError>(T resultValue)
-        {
-            return NewOk(resultValue);
-        }
-
-        /// <summary>
-        /// Turn to error result. If <typeparamref name="T"/> is <typeparamref name="TError"/>, it can't be used.
-        /// </summary>
-        /// <param name="errorValue"></param>
-        public static implicit operator Result<T, TError>(TError errorValue)
-        {
-            return NewError(errorValue);
-        }
-
-        /// <summary>
-        /// From other result with same result type but different error type.
-        /// </summary>
-        /// <typeparam name="TOtherError"></typeparam>
-        /// <param name="result"></param>
-        /// <returns></returns>
-        public static Result<T, TError> FromOk<TOtherError>(Result<T, TOtherError> result)
-        {
-            return NewOk(result.ResultValue);
-        }
-
-        /// <summary>
-        /// From other result with same error type but different result type.
-        /// </summary>
-        /// <typeparam name="TOther"></typeparam>
-        /// <param name="result"></param>
-        /// <returns></returns>
-        public static Result<T, TError> FromErr<TOther>(Result<TOther, TError> result)
-        {
-            return NewError(result.ErrorValue);
-        }
-
         /// <inheritdoc/>
         public override string ToString()
         {
             if (IsOk)
             {
-                return ResultValue.ToString();
+                return $"Ok({ResultValue.ToString()})";
             }
             else
             {
-                return ErrorValue.ToString();
+                return $"Err({ErrorValue.ToString()})";
             }
+        }
+
+        /// <inheritdoc/>
+        public bool Equals(Result<T, TError> other)
+        {
+            int tag = _tag;
+            int tag2 = other._tag;
+            if (tag == tag2)
+            {
+                if (Tag == 0)
+                {
+                    T x = resultValue;
+                    T y = other.resultValue;
+                    return x.Equals(y);
+                }
+                TError x2 = errorValue;
+                TError y2 = other.errorValue;
+                return x2.Equals(y2);
+            }
+            return false;
         }
     }
 }
