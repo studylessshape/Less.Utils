@@ -90,6 +90,15 @@ namespace Less.Utils
             }
         }
 
+        /// <summary>
+        /// <para>If is ok, map from <typeparamref name="T"/> to <typeparamref name="T2"/> by <paramref name="mapOkValue"/></para>
+        /// <para>If is error, map from <typeparamref name="TError"/> to <typeparamref name="TError2"/> by <paramref name="mapErrValue"/></para>
+        /// </summary>
+        /// <typeparam name="T2"></typeparam>
+        /// <typeparam name="TError2"></typeparam>
+        /// <param name="mapOkValue"></param>
+        /// <param name="mapErrValue"></param>
+        /// <returns></returns>
         public Result<T2, TError2> Wrap<T2, TError2>(Func<T, T2> mapOkValue, Func<TError, TError2> mapErrValue)
         {
             if (IsError)
