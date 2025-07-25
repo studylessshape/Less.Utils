@@ -127,11 +127,11 @@ namespace Less.Utils
         {
             if (IsOk)
             {
-                return $"Ok({ResultValue.ToString()})";
+                return $"Ok({ResultValue?.ToString()})";
             }
             else
             {
-                return $"Err({ErrorValue.ToString()})";
+                return $"Err({ErrorValue?.ToString()})";
             }
         }
 

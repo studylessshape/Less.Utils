@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Less.Utils", "Less.Utils\Le
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Less.Utils.WPF", "Less.Utils.WPF\Less.Utils.WPF.csproj", "{55ABA03E-53D7-470C-977B-50CFDFD1DD1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Less.Utils.ResultExtensions", "Less.Utils.ResultExtensions\Less.Utils.ResultExtensions.csproj", "{3BB7BA52-513C-439E-8352-48072B48F2EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Less.Utils.ResultExtensions.Test", "Less.Utils.ResultExtensions.Test\Less.Utils.ResultExtensions.Test.csproj", "{9407A76B-B8DB-4FE7-A244-253B17D2F155}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{55ABA03E-53D7-470C-977B-50CFDFD1DD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55ABA03E-53D7-470C-977B-50CFDFD1DD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55ABA03E-53D7-470C-977B-50CFDFD1DD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB7BA52-513C-439E-8352-48072B48F2EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB7BA52-513C-439E-8352-48072B48F2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB7BA52-513C-439E-8352-48072B48F2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB7BA52-513C-439E-8352-48072B48F2EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9407A76B-B8DB-4FE7-A244-253B17D2F155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9407A76B-B8DB-4FE7-A244-253B17D2F155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9407A76B-B8DB-4FE7-A244-253B17D2F155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9407A76B-B8DB-4FE7-A244-253B17D2F155}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

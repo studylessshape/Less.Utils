@@ -14,7 +14,7 @@ namespace Less.Utils
         /// <typeparam name="TError"></typeparam>
         /// <param name="result"></param>
         /// <returns></returns>
-        public static Task<Result<T, TError>> ToTask<T, TError>(Result<T, TError> result)
+        public static Task<Result<T, TError>> ToTask<T, TError>(this Result<T, TError> result)
         {
             return Task.FromResult(result);
         }
