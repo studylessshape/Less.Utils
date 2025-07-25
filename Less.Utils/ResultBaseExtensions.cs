@@ -5,7 +5,7 @@ namespace Less.Utils
     /// <summary>
     /// <see cref="Result{T, TError}" /> 的扩展方法
     /// </summary>
-    public static class ResultExtensions
+    public static class ResultBaseExtensions
     {
         /// <summary>
         /// Turn to <see cref="Task"/>
