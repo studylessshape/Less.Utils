@@ -28,7 +28,7 @@ namespace Less.Utils.Mapper.Services
                 assemblies.AddRange(needAssemblies);
             }
 
-            foreach (var assemblyClasses in assemblies.Select(assembly => assembly.ExportedTypes.Where(ty => ty.IsClass && !ty.IsAbstract && ty.GetInterfaces().Any(ty => ty.Name == mapperInterfaceName))))
+            foreach (var assemblyClasses in assemblies.Select(assembly => assembly.GetTypes().Where(ty => ty.IsClass && !ty.IsAbstract && ty.GetInterfaces().Any(ty => ty.Name == mapperInterfaceName))))
             {
                 foreach (var mapperClass in assemblyClasses)
                 {
