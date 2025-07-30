@@ -14,7 +14,7 @@ namespace Less.Utils.Mapper
         public Type To { get; }
 
         /// <summary>
-        /// Specify to type
+        /// Map current class to specify <see cref="To"/>
         /// </summary>
         /// <param name="to"></param>
         public MapToAttribute(Type to)

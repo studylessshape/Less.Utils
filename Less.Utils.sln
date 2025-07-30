@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Less.Utils.Mapper.SourceGen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Less.Utils.Mapper.Test", "Less.Utils.Mapper.Test\Less.Utils.Mapper.Test.csproj", "{2FADC8A4-7DD1-49C3-B79B-8FBC41554133}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Less.Utils.Mapper.Services", "Less.Utils.Mapper.Services\Less.Utils.Mapper.Services.csproj", "{1691EB77-B28E-41D0-8ED5-4878E6FB1444}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{2FADC8A4-7DD1-49C3-B79B-8FBC41554133}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FADC8A4-7DD1-49C3-B79B-8FBC41554133}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FADC8A4-7DD1-49C3-B79B-8FBC41554133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1691EB77-B28E-41D0-8ED5-4878E6FB1444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1691EB77-B28E-41D0-8ED5-4878E6FB1444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1691EB77-B28E-41D0-8ED5-4878E6FB1444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1691EB77-B28E-41D0-8ED5-4878E6FB1444}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{AD4D4D5E-A0C1-41AD-85AC-2EA0FF7BDDEA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C027CD02-02C8-8CFF-5247-C4A0CA792707} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{2FADC8A4-7DD1-49C3-B79B-8FBC41554133} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1691EB77-B28E-41D0-8ED5-4878E6FB1444} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1F74494-0698-443D-A538-12E7E4F6B05F}

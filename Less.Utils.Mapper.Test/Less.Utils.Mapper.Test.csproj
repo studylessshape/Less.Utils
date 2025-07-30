@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Less.Utils.Mapper.CodeFix\Less.Utils.Mapper.CodeFix.csproj" />
+    <ProjectReference Include="..\Less.Utils.Mapper.SourceGenerators\Less.Utils.Mapper.SourceGenerators.csproj" />
     <ProjectReference Include="..\Less.Utils.Mapper\Less.Utils.Mapper.csproj" />
   </ItemGroup>
 

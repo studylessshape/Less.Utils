@@ -6,6 +6,8 @@
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
     public interface IMapper<T1, T2>
+        where T1 : class, new()
+        where T2 : class, new()
     {
         /// <summary>
         /// Map object to <typeparamref name="T2"/>

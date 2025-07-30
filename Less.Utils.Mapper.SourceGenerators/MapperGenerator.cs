@@ -49,7 +49,7 @@ namespace Less.Utils.Mapper.SourceGenerators
                     namespace {{model.FromTypeNamespace}}
                     {
                         [System.CodeDom.Compiler.GeneratedCode]
-                        public class Mapper_{{model.FromType.Name}}_{{model.ToType.Name}} : IMapper<{{model.FromType}}, {{model.ToType}}>
+                        public class Mapper_{{model.FromType.Name}}_{{model.ToType.Name}} : IMapper<{{model.FromType}}, {{model.ToType}}>, IMapper<{{model.ToType}}, {{model.FromType}}>
                         {
                             public {{model.ToType}} MapTo({{model.FromType}} from)
                             {
