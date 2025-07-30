@@ -1,6 +1,8 @@
 ﻿using Less.Utils.Mapper.SourceGenerators;
+using Less.Utils.Mapper.Services;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.Extensions.Hosting;
 using System.Collections.Immutable;
 
 namespace Less.Utils.Mapper.Test
@@ -9,7 +11,7 @@ namespace Less.Utils.Mapper.Test
     public sealed class Test1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethodGenerator()
         {
             IEnumerable<MetadataReference> references =
                 from assembly in AppDomain.CurrentDomain.GetAssemblies().Concat([typeof(MapToAttribute).Assembly])
@@ -45,6 +47,40 @@ namespace Less.Utils.Mapper.Test
                 Console.WriteLine(generatedTree.FilePath);
                 Console.WriteLine(generatedTree.ToString());
             }
+        }
+
+        public class TestService1
+        {
+
+        }
+
+        public class TestService2
+        {
+
+        }
+
+        public class TestServiceMapper : IMapper<TestService1, TestService2>, IMapper<TestService2, TestService1>
+        {
+            public TestService2 MapTo(TestService1 from)
+            {
+                return new TestService2();
+            }
+
+            public TestService1 MapTo(TestService2 from)
+            {
+                return new TestService1();
+            }
+        }
+
+        [TestMethod]
+        public void TestService()
+        {
+            var builder = new HostBuilder();
+            builder.ConfigureServices(service =>
+            {
+                service.AddMappers(typeof(TestServiceMapper).Assembly);
+            });
+            var host = builder.Build();
         }
     }
 }
