@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace Less.Utils.ResultExtensions.Test
 {
@@ -19,11 +18,11 @@ namespace Less.Utils.ResultExtensions.Test
 
             // normal test with select and where
             var linq = from ok in Ok(1)
-                   from ok2 in Ok(2)
-                   from ok3 in Ok(3)
-                   from ok4 in Ok(4)
-                   where ok4 == 2 || ok2 == 2
-                   select ok;
+                       from ok2 in Ok(2)
+                       from ok3 in Ok(3)
+                       from ok4 in Ok(4)
+                       where ok4 == 2 || ok2 == 2
+                       select ok;
             Assert.IsTrue(linq.IsOk);
             Assert.AreEqual(1, linq.ResultValue);
 

@@ -4,11 +4,13 @@
     <TargetFrameworks>netframework45;net6.0-windows;net8.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Copyright>MIT</Copyright>
     <PackageProjectUrl>https://git.studylessshape.fun/studylessshape/Less.Utils</PackageProjectUrl>
     <RepositoryUrl>https://git.studylessshape.fun/studylessshape/Less.Utils</RepositoryUrl>
     <Version>1.0.2</Version>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	<Copyright>studylessshape</Copyright>
   </PropertyGroup>
 
 </Project>
