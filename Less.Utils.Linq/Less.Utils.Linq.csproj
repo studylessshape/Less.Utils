@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+	<PropertyGroup>
+		<Title>Less.Utils</Title>
+		<PackageProjectUrl>https://git.studylessshape.fun/studylessshape/Less.Utils</PackageProjectUrl>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Version>1.0.4</Version>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<Copyright>studylessshape</Copyright>
+	</PropertyGroup>
+</Project>
