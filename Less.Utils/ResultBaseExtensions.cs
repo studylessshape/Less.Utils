@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Less.Utils
 {
@@ -41,6 +42,34 @@ namespace Less.Utils
         public static Result<T, TError> ToErr<T, TError>(this TError result)
         {
             return Result<T, TError>.NewError(result);
+        }
+
+        /// <summary>
+        /// Provide task result wrap ok method
+        /// </summary>
+        /// <typeparam name="TNew"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TError"></typeparam>
+        /// <param name="result"></param>
+        /// <param name="wrap"></param>
+        /// <returns></returns>
+        public static async Task<Result<TNew, TError>> WrapOk<TNew, T, TError>(this Task<Result<T, TError>> result, Func<T, TNew> wrap)
+        {
+            return (await result).WrapOk(wrap);
+        }
+
+        /// <summary>
+        /// Provide task result wrap error method
+        /// </summary>
+        /// <typeparam name="TNewError"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TError"></typeparam>
+        /// <param name="result"></param>
+        /// <param name="wrap"></param>
+        /// <returns></returns>
+        public static async Task<Result<T, TNewError>> WrapErr<TNewError, T, TError>(this Task<Result<T, TError>> result, Func<TError, TNewError> wrap)
+        {
+            return (await result).WrapErr(wrap);
         }
     }
 }
