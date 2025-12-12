@@ -9,7 +9,7 @@
 	
   <PropertyGroup>
 	  <Title>Less.Utils.Mapper</Title>
-	  <PackageProjectUrl>https://git.studylessshape.fun/studylessshape/Less.Utils</PackageProjectUrl>
+	  <PackageProjectUrl>https://github.com/studylessshape/Less.Utils</PackageProjectUrl>
 	  <Version>1.0.1</Version>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

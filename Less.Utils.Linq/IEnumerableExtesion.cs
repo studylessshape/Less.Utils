@@ -15,7 +15,15 @@ namespace Less.Utils.Linq
         /// <returns></returns>
         public static IEnumerable<T> Flat<T>(this IEnumerable<IEnumerable<T>> values)
         {
-            return new FlatEnumerable<T>(values);
+            foreach (var children in values)
+            {
+                if (children == null) continue;
+
+                foreach (var child in children)
+                {
+                    yield return child;
+                }
+            }
         }
     }
 }
