@@ -7,7 +7,7 @@
 		<Title>Less.Utils</Title>
 		<PackageProjectUrl>https://github.com/studylessshape/Less.Utils</PackageProjectUrl>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Version>1.0.4</Version>
+		<Version>1.0.5</Version>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
