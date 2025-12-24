@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Mapper/">
+    <Project Path="Mapper/Less.Utils.Mapper.CodeFix/Less.Utils.Mapper.CodeFix.csproj" />
+    <Project Path="Mapper/Less.Utils.Mapper.Services/Less.Utils.Mapper.Services.csproj" />
+    <Project Path="Mapper/Less.Utils.Mapper.SourceGenerators/Less.Utils.Mapper.SourceGenerators.csproj" />
+    <Project Path="Mapper/Less.Utils.Mapper.Test/Less.Utils.Mapper.Test.csproj" />
+    <Project Path="Mapper/Less.Utils.Mapper/Less.Utils.Mapper.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Test/Less.Utils.Linq.Test/Less.Utils.Linq.Test.csproj" />
+    <Project Path="Test/Less.Utils.ResultExtensions.Test/Less.Utils.ResultExtensions.Test.csproj" />
+  </Folder>
+  <Project Path="Less.Utils.Linq/Less.Utils.Linq.csproj" />
+  <Project Path="Less.Utils.ResultExtensions/Less.Utils.ResultExtensions.csproj" />
+  <Project Path="Less.Utils.WPF/Less.Utils.WPF.csproj" />
+  <Project Path="Less.Utils/Less.Utils.csproj" />
+</Solution>

@@ -5,6 +5,7 @@
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Less.Utils.ResultExtensions\Less.Utils.ResultExtensions.csproj" />
+    <ProjectReference Include="..\..\Less.Utils.Linq\Less.Utils.Linq.csproj" />
   </ItemGroup>
 
   <ItemGroup>

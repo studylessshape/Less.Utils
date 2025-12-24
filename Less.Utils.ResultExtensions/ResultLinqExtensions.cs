@@ -3,7 +3,7 @@
 namespace Less.Utils.ResultExtensions
 {
     /// <summary>
-    /// <seealso href="https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/expressions#12204-the-query-expression-pattern"/>
+    /// <seealso href="https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/language-specification/expressions#1222-query-expressions"/>
     /// </summary>
     public static class ResultLinqExtensions
     {
