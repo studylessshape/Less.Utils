@@ -5,12 +5,8 @@
   </PropertyGroup>
 	<PropertyGroup>
 		<Title>Less.Utils</Title>
-		<PackageProjectUrl>https://github.com/studylessshape/Less.Utils</PackageProjectUrl>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Version>1.0.5</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<Copyright>studylessshape</Copyright>
 	</PropertyGroup>
 </Project>

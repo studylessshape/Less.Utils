@@ -1,16 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netframework45;net6.0-windows;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>netframework45;net6.0-windows;net8.0-windows;net10.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageProjectUrl>https://github.com/studylessshape/Less.Utils</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/studylessshape/Less.Utils</RepositoryUrl>
     <Version>1.0.2</Version>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-	<Copyright>studylessshape</Copyright>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
 </Project>

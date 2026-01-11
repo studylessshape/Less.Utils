@@ -3,17 +3,12 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <Title>Less.Utils.ResultExtensions</Title>
-    <PackageProjectUrl>https://github.com/studylessshape/Less.Utils</PackageProjectUrl>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>1.0.4</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-	<Copyright>studylessshape</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Less.Utils\Less.Utils.csproj" />
+    <PackageReference Include="Less.Utils" Version="1.0.5" />
   </ItemGroup>
-
 </Project>

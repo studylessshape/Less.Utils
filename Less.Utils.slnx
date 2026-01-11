@@ -8,9 +8,14 @@
   </Folder>
   <Folder Name="/Tests/">
     <Project Path="Test/Less.Utils.Linq.Test/Less.Utils.Linq.Test.csproj" />
+    <Project Path="Test/Less.Utils.MVVM.Test/Less.Utils.MVVM.Test.csproj" Id="1753f577-388e-4c9c-b4c7-df0c222be27a" />
     <Project Path="Test/Less.Utils.ResultExtensions.Test/Less.Utils.ResultExtensions.Test.csproj" />
   </Folder>
+  <Folder Name="/解决方案项/">
+    <File Path="Directory.Build.props" />
+  </Folder>
   <Project Path="Less.Utils.Linq/Less.Utils.Linq.csproj" />
+  <Project Path="Less.Utils.MVVM/Less.Utils.MVVM.csproj" Id="92bc01bd-a97c-446d-8057-ae80d8ee050d" />
   <Project Path="Less.Utils.ResultExtensions/Less.Utils.ResultExtensions.csproj" />
   <Project Path="Less.Utils.WPF/Less.Utils.WPF.csproj" />
   <Project Path="Less.Utils/Less.Utils.csproj" />

@@ -1,0 +1,15 @@
+<Project>
+    <PropertyGroup>
+		<LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>StudyLessShape</Authors>
+		<RepositoryUrl>https://github.com/studylessshape/Less.Utils</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/studylessshape/Less.Utils</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <Copyright>studylessshape</Copyright>
+    </PropertyGroup>
+</Project>
