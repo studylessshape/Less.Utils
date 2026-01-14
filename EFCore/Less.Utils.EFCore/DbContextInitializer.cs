@@ -37,8 +37,15 @@ namespace Less.Utils.EFCore
                     var dbContextOb = scope.ServiceProvider.GetRequiredService(dbContextType);
                     if (dbContextOb is DbContext context)
                     {
-                        await context.Database.EnsureCreatedAsync(stoppingToken);
-                        logger.LogInformation("Success create database {database} (From assembly {assembly})", dbContextType.FullName, dbContextType.Assembly.FullName);
+                        var created = await context.Database.EnsureCreatedAsync(stoppingToken);
+                        if (created)
+                        {
+                            logger.LogInformation("Success create database {database} (From assembly {assembly}).", dbContextType.FullName, dbContextType.Assembly.FullName);
+                        }
+                        else
+                        {
+                            logger.LogInformation("Database {database} already exists (From assembly {assembly}).", dbContextType.FullName, dbContextType.Assembly.FullName);
+                        }
                     }
                 }
                 catch (OperationCanceledException)
