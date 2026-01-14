@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/EFCore/">
+    <Project Path="EFCore/Less.Utils.EFCore/Less.Utils.EFCore.csproj" />
+  </Folder>
   <Folder Name="/Mapper/">
     <Project Path="Mapper/Less.Utils.Mapper.CodeFix/Less.Utils.Mapper.CodeFix.csproj" />
     <Project Path="Mapper/Less.Utils.Mapper.Services/Less.Utils.Mapper.Services.csproj" />
@@ -11,6 +14,7 @@
     <Project Path="MVVM/Less.Utils.WPF/Less.Utils.WPF.csproj" />
   </Folder>
   <Folder Name="/Tests/">
+    <Project Path="Test/Less.Utils.EFCore.Test/Less.Utils.EFCore.Test.csproj" Id="c19bb860-b30f-4523-b818-3f7f42191b82" />
     <Project Path="Test/Less.Utils.Linq.Test/Less.Utils.Linq.Test.csproj" />
     <Project Path="Test/Less.Utils.MVVM.Test/Less.Utils.MVVM.Test.csproj" Id="1753f577-388e-4c9c-b4c7-df0c222be27a" />
     <Project Path="Test/Less.Utils.ResultExtensions.Test/Less.Utils.ResultExtensions.Test.csproj" />

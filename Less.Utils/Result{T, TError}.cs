@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 
 namespace Less.Utils
 {
     /// <summary>
-    /// 简单复制 FSharpResult
+    /// Simply copy FSharpResult from `FSharp.Core`.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TError"></typeparam>
@@ -155,10 +155,18 @@ namespace Less.Utils
                 {
                     T x = resultValue;
                     T y = other.resultValue;
+
+                    if (x is null && y is null) return true;
+                    if (x is null || y is null) return false;
+
                     return x.Equals(y);
                 }
                 TError x2 = errorValue;
                 TError y2 = other.errorValue;
+
+                if (x2 is null && y2 is null) return true;
+                if (x2 is null || y2 is null) return false;
+
                 return x2.Equals(y2);
             }
             return false;

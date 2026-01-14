@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Less.Utils.Linq
 {
@@ -17,7 +17,7 @@ namespace Less.Utils.Linq
         {
             foreach (var children in values)
             {
-                if (children == null) continue;
+                if (children is null) continue;
 
                 foreach (var child in children)
                 {
