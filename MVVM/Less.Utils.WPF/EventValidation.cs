@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Windows.Controls;
 
 namespace Less.Utils.WPF
@@ -18,7 +18,7 @@ namespace Less.Utils.WPF
         /// <summary>
         /// Call in <see cref="Validate(object, CultureInfo)"/>
         /// </summary>
-        public event ValidationEvent ValidateEvent;
+        public event ValidationEvent? ValidateEvent;
         /// <summary>
         /// When result is <see langword="null"/>, the result will use default result
         /// </summary>

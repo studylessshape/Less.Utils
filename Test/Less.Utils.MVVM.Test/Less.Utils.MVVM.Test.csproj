@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Less.Utils.MVVM\Less.Utils.MVVM.csproj" />
+    <ProjectReference Include="..\..\MVVM\Less.Utils.MVVM\Less.Utils.MVVM.csproj" />
   </ItemGroup>
 
   <ItemGroup>
