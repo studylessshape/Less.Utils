@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 
 namespace Less.Utils.ResultExtensions.Test
 {
@@ -8,32 +8,32 @@ namespace Less.Utils.ResultExtensions.Test
         [TestMethod]
         public void TestResultLinq()
         {
-            Result<int, string> Ok(int value)
+            Result<T, string> Ok<T>(T value)
             {
                 Debug.WriteLine($"New Ok: {value}");
-                return Result<int, string>.NewOk(value);
+                return Result<T, string>.NewOk(value);
             }
 
             var errResult = Result<int, string>.NewError("Error");
 
             // normal test with select and where
             var linq = from ok in Ok(1)
-                       from ok2 in Ok(2)
+                       from ok2 in Ok("123")
                        from ok3 in Ok(3)
-                       from ok4 in Ok(4)
-                       where ok4 == 2 || ok2 == 2
-                       select ok;
+                       from ok4 in Ok(4.2f)
+                       where ok4 == 2 || ok2 == "123"
+                       select ok2;
             Assert.IsTrue(linq.IsOk);
-            Assert.AreEqual(1, linq.ResultValue);
+            Assert.AreEqual("123", linq.ResultValue);
 
             // interrupt by errResult
-            linq = from ok in Ok(1)
+            var linq2 = from ok in Ok(1)
                    from ok2 in Ok(2)
                    from eOk in errResult
                    from ok3 in Ok(3)
                    select ok3;
-            Assert.IsTrue(linq.IsError);
-            Assert.AreEqual("Error", linq.ErrorValue);
+            Assert.IsTrue(linq2.IsError);
+            Assert.AreEqual("Error", linq2.ErrorValue);
         }
 
         [TestMethod]
