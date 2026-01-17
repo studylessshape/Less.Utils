@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Less.Utils.EFCore.Test
 {
@@ -11,28 +11,22 @@ namespace Less.Utils.EFCore.Test
         public async Task TestDbContextInitializer()
         {
             var dbFileName = "TestDbContext.db";
-            var host = Host.CreateDefaultBuilder()
-                .ConfigureServices((context, services) =>
+            var services = new ServiceCollection();
+            services
+                .AddLogging(builder =>
                 {
-                    services.AddDbContext<TestDbContext>(options =>
-                    {
-                        options.UseSqlite($"Data Source={dbFileName}")
-                            .EnableSensitiveDataLogging(context.HostingEnvironment.IsDevelopment());
-                    })
-                    .AddDbInitializer(builder =>
-                    {
-                        builder.RegistDbContext<TestDbContext>();
-                    });
+                    builder.AddConsole();
                 })
-                .Build();
-            var hostThread = new Thread(async () =>
-            {
-                await host.RunAsync();
-            });
-            hostThread.Start();
-            // wait create dbcontext
-            await Task.Delay(2000);
-            await host.StopAsync();
+                .AddDbContext<TestDbContext>(options =>
+                {
+                    options.UseSqlite($"Data Source={dbFileName}");
+                })
+                .AddDbInitializer(builder =>
+                {
+                    builder.RegistDbContext<TestDbContext>();
+                });
+            var provider = services.BuildServiceProvider();
+            await provider.EnsureDatabaseCreateAsync();
             Assert.IsTrue(File.Exists(dbFileName));
         }
     }

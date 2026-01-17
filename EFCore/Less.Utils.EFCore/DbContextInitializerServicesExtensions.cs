@@ -1,5 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Less.Utils.EFCore
 {
@@ -13,8 +15,13 @@ namespace Less.Utils.EFCore
                 builderAction(builder);
                 return builder;
             });
-            services.AddHostedService<DbContextInitializer>();
             return services;
+        }
+
+        public static async Task EnsureDatabaseCreateAsync(this IServiceProvider serviceProvider, CancellationToken token = default)
+        {
+            var initializer = new DbContextInitializer(serviceProvider);
+            await initializer.EnsureDbContextCreateAsync(token);
         }
     }
 }

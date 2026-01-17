@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
@@ -9,22 +8,21 @@ using System.Threading.Tasks;
 
 namespace Less.Utils.EFCore
 {
-    internal class DbContextInitializer : BackgroundService
+    internal class DbContextInitializer
     {
-        private readonly DbContextInitializerBuilder builder;
         private readonly IServiceProvider serviceProvider;
         private readonly ILogger<DbContextInitializer> logger;
 
-        public DbContextInitializer(IDbContextInitializerBuilder builder, IServiceProvider serviceProvider, ILogger<DbContextInitializer> logger)
+        public DbContextInitializer(IServiceProvider serviceProvider)
         {
-            this.builder = (DbContextInitializerBuilder)builder;
             this.serviceProvider = serviceProvider;
-            this.logger = logger;
+            this.logger = serviceProvider.GetRequiredService<ILogger<DbContextInitializer>>();
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        public async Task EnsureDbContextCreateAsync(CancellationToken stoppingToken)
         {
             using var scope = serviceProvider.CreateScope();
+            var builder = (DbContextInitializerBuilder)scope.ServiceProvider.GetRequiredService<IDbContextInitializerBuilder>();
             foreach (var dbContextType in builder.DbContextTypes.Distinct())
             {
                 if (stoppingToken.IsCancellationRequested)
@@ -50,6 +48,7 @@ namespace Less.Utils.EFCore
                 }
                 catch (OperationCanceledException)
                 {
+                    logger.LogDebug("The operations of creating database has been canceled.");
                     break;
                 }
             }
