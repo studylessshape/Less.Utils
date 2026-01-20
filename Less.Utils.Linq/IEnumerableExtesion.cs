@@ -18,15 +18,13 @@ namespace Less.Utils.Linq
         /// <returns>Sequence after flat.</returns>
         public static IEnumerable<T> Flat<T>(this IEnumerable<IEnumerable<T>> values)
         {
-            foreach (var children in values)
-            {
-                if (children is null) continue;
+#if NET8_0_OR_GREATER
+            ArgumentNullException.ThrowIfNull(values);
+#else
+            if (values == null) throw new ArgumentNullException(nameof(values));
+#endif
 
-                foreach (var child in children)
-                {
-                    yield return child;
-                }
-            }
+            return values.Where(v => v is not null).SelectMany(v => v);
         }
 
         /// <summary>
@@ -40,24 +38,15 @@ namespace Less.Utils.Linq
         public static IEnumerable<T> Flat<T>(this IEnumerable<IEnumerable<T>> values, Func<T, bool> predicate)
         {
 #if NET8_0_OR_GREATER
+            ArgumentNullException.ThrowIfNull(values);
             ArgumentNullException.ThrowIfNull(predicate);
 #else
-            if (predicate == null)
-            {
-                throw new ArgumentNullException(nameof(predicate));
-            }
+            if (values == null) throw new ArgumentNullException(nameof(values));
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 #endif
-            Contract.EndContractBlock();
 
-            foreach (var children in values)
-            {
-                if (children is null) continue;
-
-                foreach (var child in children.Where(predicate))
-                {
-                    yield return child;
-                }
-            }
+            return values.Where(v => v != null)
+                    .SelectMany(v => v.Where(predicate));
         }
     }
 }
