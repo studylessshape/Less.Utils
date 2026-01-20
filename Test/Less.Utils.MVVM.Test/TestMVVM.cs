@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Less.Utils.MVVM.Test
 {
     [TestClass]
@@ -11,6 +13,7 @@ namespace Less.Utils.MVVM.Test
             {
                 var newItemsCount = e.NewItems?.Count;
                 var oldItemsCount = e.OldItems?.Count;
+                Debug.Print($"New: {newItemsCount}, Old: {oldItemsCount}");
             };
             obEX.AddRange([1, 2, 3]);
             obEX.InsertRange(2, [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
