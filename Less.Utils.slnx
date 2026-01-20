@@ -2,13 +2,6 @@
   <Folder Name="/EFCore/">
     <Project Path="EFCore/Less.Utils.EFCore/Less.Utils.EFCore.csproj" />
   </Folder>
-  <Folder Name="/Mapper/">
-    <Project Path="Mapper/Less.Utils.Mapper.CodeFix/Less.Utils.Mapper.CodeFix.csproj" />
-    <Project Path="Mapper/Less.Utils.Mapper.Services/Less.Utils.Mapper.Services.csproj" />
-    <Project Path="Mapper/Less.Utils.Mapper.SourceGenerators/Less.Utils.Mapper.SourceGenerators.csproj" />
-    <Project Path="Mapper/Less.Utils.Mapper.Test/Less.Utils.Mapper.Test.csproj" />
-    <Project Path="Mapper/Less.Utils.Mapper/Less.Utils.Mapper.csproj" />
-  </Folder>
   <Folder Name="/MVVM/">
     <Project Path="MVVM/Less.Utils.MVVM/Less.Utils.MVVM.csproj" />
     <Project Path="MVVM/Less.Utils.WPF/Less.Utils.WPF.csproj" />
