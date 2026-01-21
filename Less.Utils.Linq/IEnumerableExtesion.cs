@@ -21,7 +21,7 @@ namespace Less.Utils.Linq
 #if NET8_0_OR_GREATER
             ArgumentNullException.ThrowIfNull(values);
 #else
-            if (values == null) throw new ArgumentNullException(nameof(values));
+            if (values is null) throw new ArgumentNullException(nameof(values));
 #endif
 
             return values.Where(v => v is not null).SelectMany(v => v);
@@ -41,11 +41,11 @@ namespace Less.Utils.Linq
             ArgumentNullException.ThrowIfNull(values);
             ArgumentNullException.ThrowIfNull(predicate);
 #else
-            if (values == null) throw new ArgumentNullException(nameof(values));
-            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            if (values is null) throw new ArgumentNullException(nameof(values));
+            if (predicate is null) throw new ArgumentNullException(nameof(predicate));
 #endif
 
-            return values.Where(v => v != null)
+            return values.Where(v => v is not null)
                     .SelectMany(v => v.Where(predicate));
         }
     }
