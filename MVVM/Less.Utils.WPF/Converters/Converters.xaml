@@ -1,0 +1,21 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:Less.Utils.WPF.Converters">
+    <converter:TemplateIndexInItemsControlConverter x:Key="TemplateIndexInItemsControlConverter" />
+    <converter:TemplateIndexInItemsControlConverter
+        x:Key="TemplateIndexInItemsControlConverterAppend1"
+        Append="1" />
+    <converter:TemplateIndexInItemsControlConverter
+        x:Key="TemplateIndexInItemsControlConverterAppend2"
+        Append="2" />
+    <converter:TemplateIndexInItemsControlConverter
+        x:Key="TemplateIndexInItemsControlConverterAppend3"
+        Append="3" />
+    <converter:TemplateIndexInItemsControlConverter
+        x:Key="TemplateIndexInItemsControlConverterAppend4"
+        Append="4" />
+    <converter:TemplateIndexInItemsControlConverter
+        x:Key="TemplateIndexInItemsControlConverterAppend5"
+        Append="5" />
+</ResourceDictionary>

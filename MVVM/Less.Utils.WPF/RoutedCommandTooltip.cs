@@ -53,7 +53,7 @@ namespace Less.Utils.WPF
             }
         }
 
-        private static void OnCommandChanged(object sender, EventArgs e)
+        private static void OnCommandChanged(object? sender, EventArgs e)
         {
             if (sender is FrameworkElement element)
             {
